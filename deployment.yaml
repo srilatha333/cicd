@@ -1,5 +1,4 @@
 ---
----
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -35,39 +34,3 @@ spec:
   selector:
     app: nginx
   type: NodePort
-
-
-
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: deployment 
-  labels:
-    app: pyapp
-spec:
-  replicas: 2 
-  selector:
-    matchLabels:
-      app: pyapp
-  template:
-    metadata:
-      labels:
-        app: pyapp 
-    spec:
-      containers:
-      - name: pyapp 
-        ports:
-        - containerPort: 8080
----
-apiVersion: v1
-kind: Service
-metadata:
-  name: service 
-spec:
-  selector:
-    app: pyapp 
-  type: LoadBalancer 
-  ports:
-  - protocol: TCP
-    port: 8080
-    targetPort: 8080
