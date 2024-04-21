@@ -10,7 +10,7 @@ pipeline {
         stage('Building image') {
           steps{
             script {
-              dockerImage = docker.build("nginx:latest")
+              dockerImage = docker.build("https://hub.docker.com/repositories/srilatha333/nginx:latest")
             }
           }
         }
