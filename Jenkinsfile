@@ -1,2 +1,2 @@
 sh '''echo hostname
-echo "Hello World"'''
+echo "Hello-World"'''
