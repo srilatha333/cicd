@@ -7,22 +7,12 @@ pipeline {
               git credentialsId: 'GitCred', url: 'https://github.com/srilatha333/cicd.git'
          }
         }
-        stage('Building image') {
-          steps{
+        stage('Deploy App') {
+          steps {
             script {
-              dockerImage = docker.build("https://hub.docker.com/repositories/srilatha333/nginx:latest")
+              kubernetesDeploy(configs: "deployment.yaml", kubeconfigId: "svc-deployment-kube-config")
             }
           }
-        }
-        stage('Test') {
-            steps {
-                echo 'Testing.'
-            }
-        }
-        stage('Deploy') {
-            steps {
-                echo 'Deploying.**'
-            }
         }
     }
 }
