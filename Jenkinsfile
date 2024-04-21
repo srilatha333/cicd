@@ -1,14 +1,21 @@
 pipeline {
-  environment {
-    ENVRMNT = "pdc"
-  }
-  agent any 
-  stages {
-    stage('Cloning Git') {
-      steps {
-        sh '''echo hostname
-            echo "Hello-World"'''
-         }
-      }
+    agent any
+
+    stages {
+        stage('Build') {
+            steps {
+                echo 'Building..'
+            }
+        }
+        stage('Test') {
+            steps {
+                echo 'Testing..'
+            }
+        }
+        stage('Deploy') {
+            steps {
+                echo 'Deploying....'
+            }
+        }
     }
-  }
+}
