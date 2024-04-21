@@ -10,7 +10,7 @@ pipeline {
         stage('Building image') {
           steps{
             script {
-              dockerImage = docker.build("srilatha333/nginx:$BUILD_NUMBER")
+              dockerImage = docker.build("nginx:latest")
             }
           }
         }
