@@ -10,7 +10,7 @@ pipeline {
         stage('Deploy App') {
           steps {
             script {
-              kubernetesDeploy(configs: "deployment.yaml", kubeconfigId: "svc-deployment-kube-config")
+              kubernetesDeploy(configs: "deployment.yaml", kubeconfigId: "docker-desktop")
             }
           }
         }
